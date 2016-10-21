@@ -1,0 +1,35 @@
+<apex:page docType="html-5.0" standardStylesheets="false" showHeader="false" sidebar="false" controller="ChangeImagen">
+	<head>
+		<apex:stylesheet value="{!URLFOR($Resource.Bootstrap, 'dist/css/bootstrap.min.css')}"/>
+        <apex:includeScript value="{!$Resource.JQuery}"/>
+        <apex:includeScript value="{!URLFOR($Resource.Bootstrap, 'dist/js/bootstrap.min.js')}"/>
+	</head>
+	<body>
+		<apex:form >
+			<br/>
+			<apex:commandButton value="Regresar" styleclass="btn btn-default" action="{!Regresar}"/>
+			<br/>
+			<div class="panel panel-default">
+		  <div class="panel-heading">Detalles de la imágen</div>
+		  <div class="panel-body">
+			<div class="row">
+			  	<div class="col-md-6" align="center">
+			  		<apex:image url="/servlet/servlet.FileDownload?file={!document.Id}" width="40%"/>
+			  	</div>
+			  	<div class="col-md-6" align="center">
+			  		<apex:commandButton value="Eliminar imagen" action="{!returnToSlide}" styleclass="btn btn-default"/>
+			  	</div>
+			</div><br/><br/>
+			<div class="row">
+			  	<div class="col-md-6" align="center">
+			  		<b>Fecha de creación: </b><apex:outputField value="{!document.CreatedDate}" />
+			  	</div>
+			  	<div class="col-md-6" align="center">
+			  		<b>Descripción: </b><apex:outputField value="{!document.Description}" />
+			  	</div>
+			</div>
+		  </div>
+		</div>
+		</apex:form>
+	</body>
+</apex:page>
